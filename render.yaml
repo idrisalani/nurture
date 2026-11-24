@@ -1,4 +1,4 @@
-# Render Blueprint: NurtureNet API + Postgres + Redis (Key Value).
+# Render Blueprint: NurtureNet API + Postgres. Redis is external (see REDIS_URL below).
 # Free plans are for testing: the API sleeps after 15 min idle and the free Postgres expires after 30 days.
 # Move to paid plans before a real pilot (change `plan:` and push).
 services:
@@ -21,11 +21,10 @@ services:
         fromDatabase:
           name: nurturenet-db
           property: connectionString
+      # Render allows one free Key Value per workspace, so Redis is external (e.g. Upstash free tier).
+      # Paste its rediss:// URL in the Render dashboard (Environment tab).
       - key: REDIS_URL
-        fromService:
-          type: keyvalue
-          name: nurturenet-redis
-          property: connectionString
+        sync: false
       - key: JWT_SECRET
         generateValue: true
       - key: JWT_REFRESH_SECRET
@@ -40,13 +39,6 @@ services:
         value: https://api.aladhan.com/v1
       - key: TERMII_SENDER_ID
         value: NurtureNet
-
-  - type: keyvalue
-    name: nurturenet-redis
-    region: frankfurt
-    plan: free
-    maxmemoryPolicy: allkeys-lru
-    ipAllowList: []
 
 databases:
   - name: nurturenet-db
