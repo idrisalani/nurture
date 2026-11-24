@@ -1,0 +1,1 @@
+{ "platforms": ["android"], "android": { "modules": ["ng.nurturenet.enforcer.NurtureEnforcerModule"] } }

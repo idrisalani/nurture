@@ -1,0 +1,1259 @@
+{
+  "info": {
+    "name": "NurtureNet API \u2014 Full Test Suite",
+    "_postman_id": "nurturenet-v1",
+    "description": "End-to-end test collection for NurtureNet API.\nCovers: Auth \u2192 Children \u2192 Screen Time \u2192 Prayer \u2192 Exam Mode \u2192 Panic \u2192 AI \u2192 Payments\n\nVariables: Set {{base_url}} to http://localhost:3000/api/v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "refresh_token",
+      "value": ""
+    },
+    {
+      "key": "parent_id",
+      "value": ""
+    },
+    {
+      "key": "child_id",
+      "value": ""
+    },
+    {
+      "key": "device_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "\ud83d\udd10 Auth",
+      "item": [
+        {
+          "name": "01 Register Parent",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                  "pm.test('Has parent_id', () => { const b=pm.response.json(); pm.collectionVariables.set('parent_id', b.parent_id); pm.expect(b.parent_id).to.be.a('string'); });",
+                  "console.log('\u2705 Registered:', pm.response.json().parent_id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"phone\": \"+2348012345678\", \"full_name\": \"Mrs. Folake Adeyemi\", \"password\": \"test1234\", \"preferred_language\": \"yo\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          }
+        },
+        {
+          "name": "02 Verify OTP",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Phone verified', () => pm.expect(pm.response.json().message).to.include('verified'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"phone\": \"+2348012345678\", \"otp\": \"123456\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/verify-otp",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "verify-otp"
+              ]
+            }
+          }
+        },
+        {
+          "name": "03 Login \u2192 Save Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('Has tokens', () => { pm.expect(b.accessToken).to.be.a('string'); pm.expect(b.refreshToken).to.be.a('string'); });",
+                  "pm.collectionVariables.set('token', b.accessToken);",
+                  "pm.collectionVariables.set('refresh_token', b.refreshToken);",
+                  "pm.collectionVariables.set('parent_id', b.parent.id);",
+                  "console.log('\u2705 Token saved. Plan:', b.parent.subscription_plan);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"phone\": \"+2348012345678\", \"password\": \"test1234\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "04 Get My Profile",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Has profile', () => { const b=pm.response.json(); pm.expect(b.full_name).to.equal('Mrs. Folake Adeyemi'); pm.expect(b.preferred_language).to.equal('yo'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          }
+        },
+        {
+          "name": "05 Refresh Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.collectionVariables.set('token', b.accessToken);",
+                  "pm.collectionVariables.set('refresh_token', b.refreshToken);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"refresh_token\": \"{{refresh_token}}\" }"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/refresh",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "refresh"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83d\udc67 Children",
+      "item": [
+        {
+          "name": "06 Add Child",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                  "const b = pm.response.json();",
+                  "pm.collectionVariables.set('child_id', b.id);",
+                  "pm.test('Child created', () => pm.expect(b.full_name).to.equal('Emeka Adeyemi'));",
+                  "console.log('\u2705 Child ID:', b.id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"full_name\": \"Emeka Adeyemi\", \"date_of_birth\": \"2012-03-15\", \"avatar_emoji\": \"\\ud83d\\udc66\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/children",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "children"
+              ]
+            }
+          }
+        },
+        {
+          "name": "07 List Children",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Returns array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/children",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "children"
+              ]
+            }
+          }
+        },
+        {
+          "name": "08 Get Child Summary",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/children/{{child_id}}/summary",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "children",
+                "{{child_id}}",
+                "summary"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\u23f1\ufe0f Screen Time",
+      "item": [
+        {
+          "name": "09 Set Screen Limits",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"weekday_limit_mins\": 120, \"weekend_limit_mins\": 180, \"school_lock_enabled\": true, \"bedtime_lock_enabled\": true, \"bedtime_start\": \"21:00\", \"bedtime_end\": \"06:00\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/screentime/{{child_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "screentime",
+                "{{child_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "10 Get Screen Limits",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/screentime/{{child_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "screentime",
+                "{{child_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "11 Pause Internet (30 min)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Internet paused', () => pm.expect(pm.response.json().message).to.include('paused'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"child_id\": \"{{child_id}}\", \"duration_mins\": 30}"
+            },
+            "url": {
+              "raw": "{{base_url}}/screentime/pause",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "screentime",
+                "pause"
+              ]
+            }
+          }
+        },
+        {
+          "name": "12 Resume Internet",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"child_id\": \"{{child_id}}\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/screentime/resume",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "screentime",
+                "resume"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83d\udd4c Prayer Mode [AFRICA]",
+      "item": [
+        {
+          "name": "13 Get Prayer Times (Kano)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Has Fajr time', () => pm.expect(pm.response.json().timings).to.have.property('Fajr'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/prayer/times?city=Kano&date=today",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "prayer",
+                "times"
+              ],
+              "query": [
+                {
+                  "key": "city",
+                  "value": "Kano"
+                },
+                {
+                  "key": "date",
+                  "value": "today"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "14 Get Nigerian Cities",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Has 25 cities', () => pm.expect(pm.response.json().length).to.be.at.least(20));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/prayer/cities",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "prayer",
+                "cities"
+              ]
+            }
+          }
+        },
+        {
+          "name": "15 Save Prayer Schedule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"city\": \"Kano\", \"state\": \"Kano State\", \"is_enabled\": true, \"locked_prayers\": [\"fajr\", \"dhuhr\", \"asr\", \"maghrib\", \"isha\"], \"include_jumuah\": true, \"lock_buffer_mins\": 15, \"calculation_method\": \"Muslim_World_League\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/prayer/schedule/{{child_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "prayer",
+                "schedule",
+                "{{child_id}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83d\udcda Exam Mode [AFRICA]",
+      "item": [
+        {
+          "name": "16 Get Exam Calendar 2027",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Has WAEC', () => { const exams=pm.response.json(); pm.expect(exams.some(e=>e.exam_body==='WAEC')).to.be.true; });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/exam/calendar?year=2027",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "exam",
+                "calendar"
+              ],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "2027"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "17 Activate WAEC Exam Mode",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                  "pm.test('WAEC activated', () => pm.expect(pm.response.json().message).to.include('WAEC'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"exam_body\": \"WAEC\", \"start_date\": \"2027-05-03\", \"end_date\": \"2027-06-18\", \"block_social_media\": true, \"block_gaming\": true, \"block_entertainment\": true, \"block_messaging\": false}"
+            },
+            "url": {
+              "raw": "{{base_url}}/exam/{{child_id}}/activate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "exam",
+                "{{child_id}}",
+                "activate"
+              ]
+            }
+          }
+        },
+        {
+          "name": "18 Deactivate Exam Mode",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/exam/{{child_id}}/deactivate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "exam",
+                "{{child_id}}",
+                "deactivate"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83d\udccd Location",
+      "item": [
+        {
+          "name": "19 Add Saved Place (School)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"School\", \"latitude\": 6.51, \"longitude\": 3.36, \"radius_metres\": 150, \"icon\": \"\\ud83c\\udfeb\", \"alert_on_arrive\": true, \"alert_on_leave\": true}"
+            },
+            "url": {
+              "raw": "{{base_url}}/location/places",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "location",
+                "places"
+              ]
+            }
+          }
+        },
+        {
+          "name": "20 Get Current Location",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/location/{{child_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "location",
+                "{{child_id}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83e\udd16 AI Threat Detection [NIGERIA NLP]",
+      "item": [
+        {
+          "name": "21 Scan Safe Message (English)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Low threat score', () => pm.expect(pm.response.json().threat_score).to.be.below(40));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "child-id",
+                "value": "{{child_id}}"
+              },
+              {
+                "key": "device-id",
+                "value": "{{device_id}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"content\": \"Hey, are you coming to football practice after school today?\", \"platform\": \"whatsapp\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/ai/scan-message",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ai",
+                "scan-message"
+              ]
+            }
+          }
+        },
+        {
+          "name": "22 Scan Suspicious Message (Pidgin)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "console.log('Threat score:', b.threat_score, 'Categories:', b.threat_categories);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "child-id",
+                "value": "{{child_id}}"
+              },
+              {
+                "key": "device-id",
+                "value": "{{device_id}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"content\": \"Abeg no tell your mama, make we meet for that place alone after school\", \"platform\": \"whatsapp\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/ai/scan-message",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ai",
+                "scan-message"
+              ]
+            }
+          }
+        },
+        {
+          "name": "23 Scan Search Query (Hausa)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "child-id",
+                "value": "{{child_id}}"
+              },
+              {
+                "key": "device-id",
+                "value": "{{device_id}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"query\": \"yadda ake samun magunguna a gida\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/ai/scan-search",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ai",
+                "scan-search"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83c\udd98 Panic Button",
+      "item": [
+        {
+          "name": "24 Add Emergency Contact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Uncle Tunde\", \"phone\": \"+2348098765432\", \"relationship\": \"uncle\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/panic/contacts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "panic",
+                "contacts"
+              ]
+            }
+          }
+        },
+        {
+          "name": "25 Trigger Panic (Device)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('SOS sent', () => pm.expect(pm.response.json().message).to.include('SOS'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "child-id",
+                "value": "{{child_id}}"
+              },
+              {
+                "key": "device-id",
+                "value": "{{device_id}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"latitude\": 6.5244, \"longitude\": 3.3792, \"accuracy_metres\": 10}"
+            },
+            "url": {
+              "raw": "{{base_url}}/panic/trigger",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "panic",
+                "trigger"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83d\udcb3 Payments",
+      "item": [
+        {
+          "name": "26 Get Pricing Plans",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Has Free plan', () => pm.expect(pm.response.json().some(p=>p.plan==='free')).to.be.true);",
+                  "pm.test('Has Pro plan', () => pm.expect(pm.response.json().some(p=>p.plan==='pro')).to.be.true);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/payments/plans",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payments",
+                "plans"
+              ]
+            }
+          }
+        },
+        {
+          "name": "27 Initiate Basic Subscription (Paystack)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"plan\": \"basic\", \"billing_cycle\": \"monthly\", \"payment_method\": \"card\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/payments/initiate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payments",
+                "initiate"
+              ]
+            }
+          }
+        },
+        {
+          "name": "28 Get Subscription Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/payments/subscription",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payments",
+                "subscription"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83d\udd14 Alerts",
+      "item": [
+        {
+          "name": "29 Get All Alerts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/alerts?unread_only=false",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "alerts"
+              ],
+              "query": [
+                {
+                  "key": "unread_only",
+                  "value": "false"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "30 Mark All Alerts Read",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/alerts/read-all",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "alerts",
+                "read-all"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83d\udcc5 Routines",
+      "item": [
+        {
+          "name": "31 Get Preset Routines",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Has WAEC preset', () => pm.expect(pm.response.json().some(r=>r.preset_key==='waec_study')).to.be.true);",
+                  "pm.test('Has Prayer preset', () => pm.expect(pm.response.json().some(r=>r.preset_key==='daily_salah')).to.be.true);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/routines/presets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "routines",
+                "presets"
+              ]
+            }
+          }
+        },
+        {
+          "name": "32 Apply Bedtime Preset",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"preset_key\": \"bedtime\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/routines/{{child_id}}/apply-preset",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "routines",
+                "{{child_id}}",
+                "apply-preset"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "\ud83d\udcca Reports",
+      "item": [
+        {
+          "name": "33 Weekly Report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/reports/{{child_id}}/weekly",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "reports",
+                "{{child_id}}",
+                "weekly"
+              ]
+            }
+          }
+        },
+        {
+          "name": "34 App Usage Breakdown",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/reports/{{child_id}}/apps",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "reports",
+                "{{child_id}}",
+                "apps"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "35 Logout",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "pm.collectionVariables.set('token', '');",
+              "pm.collectionVariables.set('refresh_token', '');"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/auth/logout",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "logout"
+          ]
+        }
+      }
+    }
+  ]
+}

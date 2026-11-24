@@ -1,0 +1,70 @@
+{
+  "notif": {
+    "title": "NurtureNet dey on",
+    "body": "Your parent don set rules for this phone. Tap to see dem."
+  },
+  "lock": {
+    "bedtime": "Time to sleep",
+    "school": "School time",
+    "prayer": "Prayer time",
+    "jumuah": "Jumu’ah",
+    "church": "Church time",
+    "limit": "Today time don finish",
+    "paused": "Phone don stop",
+    "exam_study": "Time to read book",
+    "blocked_app": "This app dey off for now",
+    "until": "E go come back by {time}.",
+    "until_parent": "Your parent go put am back.",
+    "why": "Your parent set these rules. Dem fit change dem for NurtureNet app.",
+    "call": "Call somebody",
+    "help": "I need help"
+  },
+  "home": {
+    "hi": "How far",
+    "open": "Your phone dey open.",
+    "status_open": "Open",
+    "status_rest": "E dey rest",
+    "sos": "I need help",
+    "sos_hold": "Press and hold",
+    "sos_note": "If you hold am, your family go know where you dey.",
+    "r_paused": "Your parent don stop the phone.",
+    "r_bedtime": "Na sleep time.",
+    "r_school": "Na school time.",
+    "r_prayer": "Na prayer time.",
+    "r_limit": "Today phone time don finish.",
+    "sync": "Update my rules"
+  },
+  "sos": {
+    "sent": "Help dey come. Your family don know where you dey.",
+    "queued": "No network. Your alert go send as network show.",
+    "no_loc": "We no see where you dey. Put location on, or call somebody now."
+  },
+  "pair": {
+    "title": "Put the code",
+    "cta": "Link this phone",
+    "label": "6-number code",
+    "invalid": "The code get 6 numbers. Check am, then try again."
+  },
+  "common": {
+    "back": "Go back",
+    "offline": "No network. Check your network, then try again."
+  },
+  "welcome": {
+    "title": "How far! This phone dey use NurtureNet.",
+    "cta": "I get code from my parent",
+    "no_read": "NurtureNet no dey read your message, photo or password. E dey always show notice when e dey on."
+  },
+  "lang": {
+    "title": "Language"
+  },
+  "rhythm": {
+    "rest": "Sleep",
+    "school": "School",
+    "prayer": "Prayer",
+    "now": "Now"
+  },
+  "units": {
+    "h": "hr",
+    "min": "min"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "notif": {
+    "title": "NurtureNet na-arụ ọrụ",
+    "body": "Ndị mụrụ gị debara iwu maka ekwentị a. Pịa ka ị hụ ha."
+  },
+  "lock": {
+    "bedtime": "Oge ụra",
+    "school": "Oge ụlọakwụkwọ",
+    "prayer": "Oge ekpere",
+    "jumuah": "Jumu’ah",
+    "church": "Oge ụka",
+    "limit": "Oge taa agwụla",
+    "paused": "Akwụsịrị ekwentị",
+    "exam_study": "Oge ọmụmụ",
+    "blocked_app": "Emechiri ngwa a ugbu a",
+    "until": "Ọ ga-alaghachi n’elekere {time}.",
+    "until_parent": "Ndị mụrụ gị ga-emeghe ya.",
+    "why": "Ndị mụrụ gị debara iwu ndị a. Ha nwere ike ịgbanwe ha na ngwa NurtureNet.",
+    "call": "Kpọọ onye",
+    "help": "Achọrọ m enyemaka"
+  },
+  "home": {
+    "hi": "Nnọọ",
+    "open": "Ekwentị gị meghere.",
+    "status_open": "Meghere",
+    "status_rest": "Na-ezumike",
+    "sos": "Achọrọ m enyemaka",
+    "sos_hold": "Pịa jide ya",
+    "sos_note": "Ijide nke a na-agwa ezinụlọ gị ebe ị nọ.",
+    "r_paused": "Ndị mụrụ gị akwụsịla ekwentị.",
+    "r_bedtime": "Ọ bụ oge ụra.",
+    "r_school": "Ọ bụ oge ụlọakwụkwọ.",
+    "r_prayer": "Ọ bụ oge ekpere.",
+    "r_limit": "Oge ekwentị taa agwụla.",
+    "sync": "Melite iwu m"
+  },
+  "sos": {
+    "sent": "Enyemaka na-bịa. Agwala ezinụlọ gị ebe ị nọ.",
+    "queued": "Enweghị netwọk. A ga-ezipụ ọkwa gị ozugbo ị lọghachiri n’ịntanetị.",
+    "no_loc": "Achọtaghị ebe ị nọ. Kpọghee ebe, ma ọ bụ kpọọ onye ugbu a."
+  },
+  "pair": {
+    "title": "Tinye koodu",
+    "cta": "Jikọọ ekwentị a",
+    "label": "Koodu nke nọmba isii",
+    "invalid": "Koodu nwere nọmba isii. Lelee ma nwaa ọzọ."
+  },
+  "common": {
+    "back": "Laghachi",
+    "offline": "Enweghị njikọ ịntanetị. Lelee netwọk gị ma nwaa ọzọ."
+  },
+  "welcome": {
+    "title": "Nnọọ! Ekwentị a na-eji NurtureNet.",
+    "cta": "Enwere m koodu sitere n’aka nne m ma ọ bụ nna m",
+    "no_read": "NurtureNet anaghị agụ ozi gị, foto gị ma ọ bụ okwuntughe gị. Ọ na-egosi ọkwa mgbe niile ọ na-arụ ọrụ."
+  },
+  "lang": {
+    "title": "Asụsụ"
+  },
+  "rhythm": {
+    "rest": "Ụra",
+    "school": "Ụlọakwụkwọ",
+    "prayer": "Ekpere",
+    "now": "Ugbu a"
+  },
+  "units": {
+    "h": "awa",
+    "min": "nkeji"
+  }
+}

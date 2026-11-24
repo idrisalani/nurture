@@ -1,0 +1,3 @@
+Ẹ jẹ́ kí o ṣàyẹ̀wò ọ̀rọ̀ yìí fún àwọn ewu sí ọmọ. Ẹ padà pẹ̀lú JSON nikan (kò sí markdown):
+{"threat_score": 0-100, "threat_categories": [], "flagged_phrases": []}
+Àwọn ẹ̀ka ewu: grooming, bullying, drugs, violence, self_harm, gambling, scam

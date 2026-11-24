@@ -1,0 +1,132 @@
+{
+  "common": {
+    "back": "Back",
+    "offline": "No connection. Check your network and try again."
+  },
+  "days": {
+    "0": "Sun",
+    "1": "Mon",
+    "2": "Tue",
+    "3": "Wed",
+    "4": "Thu",
+    "5": "Fri",
+    "6": "Sat"
+  },
+  "home": {
+    "app_limit": "{{n}} min a day",
+    "app_off": "Off",
+    "fix_body": "Some settings were turned off. Your parent will see this.",
+    "fix_cta": "Fix it now",
+    "fix_title": "NurtureNet needs a setting back on",
+    "hi": "Hi",
+    "left": "{{left}} left.",
+    "limit_done": "All used up for today.",
+    "loading": "Getting your rules…",
+    "never": "Not updated yet",
+    "offline": "No connection. Your rules still work. We will update them when you are online.",
+    "open": "Your phone is open.",
+    "r_bedtime": "It is sleep time.",
+    "r_church": "It is church time.",
+    "r_exam": "Study time. Only study apps are open.",
+    "r_jumuah": "It is Jumu'ah.",
+    "r_limit": "Today's screen time is used up.",
+    "r_paused": "Your parent paused the phone.",
+    "r_prayer": "It is prayer time.",
+    "r_school": "It is school time.",
+    "rhythm": "Today's plan",
+    "sos": "I need help",
+    "sos_hold": "Press and hold",
+    "sos_note": "Holding this tells your family where you are.",
+    "status_open": "Open",
+    "status_rest": "Resting",
+    "sync": "Update my rules",
+    "synced": "Updated {{n}} min ago",
+    "today": "Screen time today"
+  },
+  "lang": {
+    "title": "Language"
+  },
+  "lock": {
+    "bedtime": "Time to sleep",
+    "blocked_app": "This app is off right now",
+    "call": "Call someone",
+    "church": "Church time",
+    "exam_study": "Study time",
+    "help": "I need help",
+    "jumuah": "Jumu'ah",
+    "limit": "Today's time is used up",
+    "paused": "Phone is paused",
+    "prayer": "Prayer time",
+    "school": "School time",
+    "until": "Back at {time}.",
+    "until_parent": "Your parent will turn it back on.",
+    "why": "Your parent set these rules. They can change them in the NurtureNet app."
+  },
+  "notif": {
+    "body": "Your parent set rules for this phone. Tap to see them.",
+    "title": "NurtureNet is on"
+  },
+  "pair": {
+    "cta": "Link this phone",
+    "failed": "That code did not work. Ask your parent for a new one.",
+    "invalid": "The code has 6 numbers. Check it and try again.",
+    "label": "6-digit code",
+    "note": "The code works once, for 15 minutes.",
+    "sub": "Ask your parent to open NurtureNet on their phone, go to Settings, then Link a phone.",
+    "title": "Enter the code"
+  },
+  "perm": {
+    "access": "Pause apps when the rules say so",
+    "access_why": "NurtureNet uses the Accessibility setting only to see which app is on screen, so it can show a rest page at bedtime, school or prayer. It does not read what you type, your messages or your passwords. In the list, tap NurtureNet and switch it on.",
+    "allow": "Allow",
+    "battery": "Keep working in the background",
+    "battery_why": "Stops the phone from switching NurtureNet off to save battery.",
+    "done": "Done",
+    "loc": "Share where you are",
+    "loc_note": "Without location, your parent cannot see where you are and SOS cannot share it.",
+    "loc_why": "So your parent can see you are safe. Choose \"Allow all the time\" so it keeps working when the app is closed.",
+    "need": "Switch on the first two to continue",
+    "notif": "Show the \"NurtureNet is on\" notice",
+    "notif_why": "NurtureNet always tells you when it is on.",
+    "open": "Open settings",
+    "optional": "Recommended",
+    "sub": "Switch these on one by one. Come back here after each one.",
+    "title": "Let NurtureNet work",
+    "usage": "See which apps you use",
+    "usage_why": "So NurtureNet can count your screen time. Android will open a list: find NurtureNet and switch it on."
+  },
+  "prayer": {
+    "asr": "Asr",
+    "dhuhr": "Dhuhr",
+    "fajr": "Fajr",
+    "isha": "Isha",
+    "maghrib": "Maghrib"
+  },
+  "rhythm": {
+    "now": "Now",
+    "prayer": "Prayer",
+    "rest": "Sleep",
+    "school": "School"
+  },
+  "sos": {
+    "no_loc": "Could not find your location. Turn on location, or call someone now.",
+    "queued": "No network. Your alert will send as soon as you are back online.",
+    "sent": "Help is on the way. Your family has been told where you are."
+  },
+  "units": {
+    "h": "h",
+    "min": "min"
+  },
+  "welcome": {
+    "cta": "I have a code from my parent",
+    "no_read": "NurtureNet does not read your messages, photos or passwords. It always shows a notice when it is on.",
+    "sos": "Lets you ask for help",
+    "sos_sub": "Hold the red button and your family is told where you are.",
+    "sub": "Your parent chose it to help you use your phone in a healthy way. Here is what it does.",
+    "time": "Keeps rules your parent set",
+    "time_sub": "Like time for sleep, school and prayer.",
+    "title": "Hi! This phone uses NurtureNet.",
+    "where": "Shares where your phone is",
+    "where_sub": "So your parent knows you are safe."
+  }
+}

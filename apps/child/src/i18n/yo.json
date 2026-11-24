@@ -1,0 +1,70 @@
+{
+  "notif": {
+    "title": "NurtureNet ń ṣiṣẹ́",
+    "body": "Àwọn òbí rẹ ti ṣètò òfin fún fóònù yìí. Tẹ̀ láti wò ó."
+  },
+  "lock": {
+    "bedtime": "Àkókò ìsùn",
+    "school": "Àkókò ilé-ìwé",
+    "prayer": "Àkókò àdúrà",
+    "jumuah": "Jùmọ̀ọ́",
+    "church": "Àkókò ìjọ́sìn",
+    "limit": "Àkókò òní ti tán",
+    "paused": "A ti dá fóònù dúró",
+    "exam_study": "Àkókò ìkẹ́kọ̀ọ́",
+    "blocked_app": "A ti pa ohun èlò yìí báyìí",
+    "until": "Yóò padà ní {time}.",
+    "until_parent": "Òbí rẹ yóò tún un ṣí.",
+    "why": "Àwọn òbí rẹ ló ṣètò àwọn òfin yìí. Wọ́n lè yí wọn padà nínú ohun èlò NurtureNet.",
+    "call": "Pe ẹnìkan",
+    "help": "Mo nílò ìrànlọ́wọ́"
+  },
+  "home": {
+    "hi": "Báwo",
+    "open": "Fóònù rẹ ṣí sílẹ̀.",
+    "status_open": "Ó ṣí",
+    "status_rest": "Ó ń sinmi",
+    "sos": "Mo nílò ìrànlọ́wọ́",
+    "sos_hold": "Tẹ̀ kí o dì í mú",
+    "sos_note": "Dídì èyí mú yóò sọ fún ẹbí rẹ ibi tí o wà.",
+    "r_paused": "Òbí rẹ ti dá fóònù dúró.",
+    "r_bedtime": "Àkókò ìsùn nìyí.",
+    "r_school": "Àkókò ilé-ìwé nìyí.",
+    "r_prayer": "Àkókò àdúrà nìyí.",
+    "r_limit": "Àkókò fóònù òní ti tán.",
+    "sync": "Ṣe àtúnṣe àwọn òfin mi"
+  },
+  "sos": {
+    "sent": "Ìrànlọ́wọ́ ń bọ̀. A ti sọ fún ẹbí rẹ ibi tí o wà.",
+    "queued": "Kò sí nẹ́tíwọ́kì. A ó fi ìkìlọ̀ rẹ ránṣẹ́ bí o bá ṣe padà sórí íńtánẹ́ẹ̀tì.",
+    "no_loc": "A kò rí ibi tí o wà. Tan ibùdó, tàbí pe ẹnìkan báyìí."
+  },
+  "pair": {
+    "title": "Tẹ kóòdù náà",
+    "cta": "So fóònù yìí",
+    "label": "Kóòdù oní nọ́mbà mẹ́fà",
+    "invalid": "Kóòdù náà ní nọ́mbà mẹ́fà. Ṣàyẹ̀wò kí o tún gbìyànjú."
+  },
+  "common": {
+    "back": "Padà",
+    "offline": "Kò sí ìsopọ̀ ayélujára. Ṣàyẹ̀wò nẹ́tíwọ́kì rẹ kí o tún gbìyànjú."
+  },
+  "welcome": {
+    "title": "Báwo! Fóònù yìí ń lo NurtureNet.",
+    "cta": "Mo ní kóòdù láti ọ̀dọ̀ òbí mi",
+    "no_read": "NurtureNet kì í ka àwọn ìránṣẹ́, fọ́tò tàbí ọ̀rọ̀ aṣínà rẹ. Ó máa ń fi ìkìlọ̀ hàn nígbà gbogbo tí ó bá ń ṣiṣẹ́."
+  },
+  "lang": {
+    "title": "Èdè"
+  },
+  "rhythm": {
+    "rest": "Ìsùn",
+    "school": "Ilé-ìwé",
+    "prayer": "Àdúrà",
+    "now": "Báyìí"
+  },
+  "units": {
+    "h": "wákàtí",
+    "min": "ìṣẹ́jú"
+  }
+}

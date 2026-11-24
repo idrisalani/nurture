@@ -1,0 +1,115 @@
+{
+  "home": {
+    "used_of": "{{name}} ejirila {{used}} n’ime {{limit}} taa.",
+    "left": "{{left}} fọdụrụ.",
+    "pause_sub": "Bepụ ịntanetị ugbu a, ruo oge ị họọrọ",
+    "pause_30": "nkeji 30",
+    "pause_60": "awa 1",
+    "pause_120": "awa 2",
+    "pause_until": "Ruo mgbe m ga-eji kpọghee ya",
+    "prayer_on": "Mepere maka {{city}}",
+    "online_rules": "Iwu na-arụ ọrụ",
+    "paused": "Kwụsịrị ịntanetị",
+    "morning": "Ụtụtụ ọma",
+    "afternoon": "Ehihie ọma",
+    "evening": "Mgbede ọma",
+    "pause": "Kwụsị ịntanetị",
+    "resume": "Kpọghee ịntanetị",
+    "prayer": "Oge ekpere",
+    "exam": "Ọnọdụ ule",
+    "filter": "Nzacha ọdịnaya",
+    "sos": "Ndị kpọrọ maka mberede na SOS",
+    "add_child": "Tinye nwa",
+    "off": "Emechiri",
+    "on": "Mepere",
+    "rhythm": "Usoro taa",
+    "empty_title": "Tinye nwa gị mbụ",
+    "tip": "Ndụmọdụ taa",
+    "limit_reached": "Oke taa ruru."
+  },
+  "nav": {
+    "home": "Ụlọ",
+    "limits": "Oke",
+    "location": "Ebe",
+    "reports": "Akụkọ",
+    "settings": "Nhazi",
+    "alerts": "Ọkwa"
+  },
+  "common": {
+    "save": "Chekwaa",
+    "cancel": "Kagbuo",
+    "back": "Laghachi",
+    "remove": "Wepụ",
+    "try_again": "Ọ rụghị ọrụ. Nwaa ọzọ.",
+    "offline": "Enweghị njikọ ịntanetị. Lelee netwọk gị ma nwaa ọzọ."
+  },
+  "auth": {
+    "login_title": "Nnọọ ọzọ",
+    "phone": "Nọmba ekwentị",
+    "password": "Okwuntughe",
+    "login_cta": "Banye",
+    "no_account": "Mepụta akaụntụ",
+    "register_title": "Mepụta akaụntụ gị",
+    "register_cta": "Mepụta akaụntụ",
+    "have_account": "Enwere m akaụntụ",
+    "full_name": "Aha gị",
+    "otp_title": "Kwenye ekwentị gị",
+    "otp_cta": "Kwenye"
+  },
+  "limits": {
+    "title": "Oge ekwentị",
+    "weekday": "Ụbọchị ụlọakwụkwọ",
+    "weekend": "Ngwụcha izu",
+    "bedtime": "Mkpọchi oge ụra"
+  },
+  "loc": {
+    "title": "Ebe"
+  },
+  "rep": {
+    "title": "Akụkọ"
+  },
+  "settings": {
+    "title": "Nhazi",
+    "logout": "Pụọ"
+  },
+  "lang": {
+    "title": "Asụsụ"
+  },
+  "appearance": {
+    "title": "Ọdịdị",
+    "auto": "Soro ekwentị m",
+    "light": "Ọkụ",
+    "dark": "Ọchịchịrị"
+  },
+  "plans": {
+    "title": "Atụmatụ"
+  },
+  "alerts": {
+    "title": "Ọkwa"
+  },
+  "rhythm": {
+    "rest": "Ụra",
+    "school": "Ụlọakwụkwọ",
+    "prayer": "Ekpere",
+    "now": "Ugbu a"
+  },
+  "units": {
+    "h": "awa",
+    "min": "nkeji"
+  },
+  "time": {
+    "just_now": "ugbu a",
+    "min_ago": "nkeji {{n}} gara aga",
+    "h_ago": "awa {{n}} gara aga",
+    "d_ago": "ụbọchị {{n}} gara aga"
+  },
+  "days": {
+    "0": "Sọn",
+    "1": "Mọn",
+    "2": "Tiu",
+    "3": "Wen",
+    "4": "Tọọ",
+    "5": "Fraị",
+    "6": "Sat"
+  }
+}

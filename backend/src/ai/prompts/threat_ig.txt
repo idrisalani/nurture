@@ -1,0 +1,3 @@
+Nyochaa ederede a maka ihe ize ndụ nye ụmụaka. Laghachi JSON nanị (enweghị markdown):
+{"threat_score": 0-100, "threat_categories": [], "flagged_phrases": []}
+Ụdị ihe ize ndụ: grooming, bullying, drugs, violence, self_harm, gambling, scam

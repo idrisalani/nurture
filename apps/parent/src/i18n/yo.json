@@ -1,0 +1,115 @@
+{
+  "home": {
+    "used_of": "Lílò {{name}} lónìí: {{used}} nínú {{limit}}.",
+    "left": "{{left}} ló kù.",
+    "pause_sub": "Gé ìwọlé kúrò báyìí, fún àkókò tí o yàn",
+    "pause_30": "ìṣẹ́jú 30",
+    "pause_60": "wákàtí 1",
+    "pause_120": "wákàtí 2",
+    "pause_until": "Títí èmi yóò fi tún ṣí i",
+    "prayer_on": "Ó wà ní títàn fún {{city}}",
+    "online_rules": "Àwọn òfin ń ṣiṣẹ́",
+    "paused": "A ti dá íńtánẹ́ẹ̀tì dúró",
+    "morning": "Káàárọ̀",
+    "afternoon": "Káàsán",
+    "evening": "Ẹ kú ìrọ̀lẹ́",
+    "pause": "Dá íńtánẹ́ẹ̀tì dúró",
+    "resume": "Tún íńtánẹ́ẹ̀tì ṣí",
+    "prayer": "Àkókò àdúrà",
+    "exam": "Ipò ìdánwò",
+    "filter": "Àlẹ̀mọ́ àkóónú",
+    "sos": "Àwọn olùbásọ̀rọ̀ pàjáwìrì àti SOS",
+    "add_child": "Fi ọmọ kún",
+    "off": "Ó wà ní títì",
+    "on": "Ó wà ní títàn",
+    "rhythm": "Ètò òní",
+    "empty_title": "Fi ọmọ rẹ àkọ́kọ́ kún",
+    "tip": "Ìmọ̀ràn òní",
+    "limit_reached": "Ìdíwọ̀n òní ti pé."
+  },
+  "nav": {
+    "home": "Ilé",
+    "limits": "Ìdíwọ̀n",
+    "location": "Ibùdó",
+    "reports": "Ìròyìn",
+    "settings": "Ètò",
+    "alerts": "Ìkìlọ̀"
+  },
+  "common": {
+    "save": "Fi pamọ́",
+    "cancel": "Fagilé",
+    "back": "Padà",
+    "remove": "Yọ kúrò",
+    "try_again": "Kò ṣiṣẹ́. Gbìyànjú lẹ́ẹ̀kan sí i.",
+    "offline": "Kò sí ìsopọ̀ ayélujára. Ṣàyẹ̀wò nẹ́tíwọ́kì rẹ kí o tún gbìyànjú."
+  },
+  "auth": {
+    "login_title": "Káàbọ̀ padà",
+    "phone": "Nọ́mbà fóònù",
+    "password": "Ọ̀rọ̀ aṣínà",
+    "login_cta": "Wọlé",
+    "no_account": "Ṣẹ̀dá àkọọ́lẹ̀",
+    "register_title": "Ṣẹ̀dá àkọọ́lẹ̀ rẹ",
+    "register_cta": "Ṣẹ̀dá àkọọ́lẹ̀",
+    "have_account": "Mo ti ní àkọọ́lẹ̀",
+    "full_name": "Orúkọ rẹ",
+    "otp_title": "Jẹ́rìí fóònù rẹ",
+    "otp_cta": "Jẹ́rìísí"
+  },
+  "limits": {
+    "title": "Àkókò orí fóònù",
+    "weekday": "Ọjọ́ ilé-ìwé",
+    "weekend": "Òpin ọ̀sẹ̀",
+    "bedtime": "Ìtìpa àkókò ìsùn"
+  },
+  "loc": {
+    "title": "Ibùdó"
+  },
+  "rep": {
+    "title": "Ìròyìn"
+  },
+  "settings": {
+    "title": "Ètò",
+    "logout": "Jáde"
+  },
+  "lang": {
+    "title": "Èdè"
+  },
+  "appearance": {
+    "title": "Ìrísí",
+    "auto": "Tẹ̀lé fóònù mi",
+    "light": "Ìmọ́lẹ̀",
+    "dark": "Òkùnkùn"
+  },
+  "plans": {
+    "title": "Àwọn ìpèsè"
+  },
+  "alerts": {
+    "title": "Ìkìlọ̀"
+  },
+  "rhythm": {
+    "rest": "Ìsùn",
+    "school": "Ilé-ìwé",
+    "prayer": "Àdúrà",
+    "now": "Báyìí"
+  },
+  "units": {
+    "h": "wákàtí",
+    "min": "ìṣẹ́jú"
+  },
+  "time": {
+    "just_now": "ní ìsinsin yìí",
+    "min_ago": "ìṣẹ́jú {{n}} sẹ́yìn",
+    "h_ago": "wákàtí {{n}} sẹ́yìn",
+    "d_ago": "ọjọ́ {{n}} sẹ́yìn"
+  },
+  "days": {
+    "0": "Àìk",
+    "1": "Ajé",
+    "2": "Ìsg",
+    "3": "Ọjr",
+    "4": "Ọjb",
+    "5": "Ẹtì",
+    "6": "Àbm"
+  }
+}

@@ -1,0 +1,3 @@
+Bincika wannan rubutu don neman haɗari ga yara. Mayar da JSON kawai (ba markdown):
+{"threat_score": 0-100, "threat_categories": [], "flagged_phrases": []}
+Nau'ukan haɗari: grooming, bullying, drugs, violence, self_harm, gambling, scam

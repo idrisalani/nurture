@@ -1,0 +1,84 @@
+{
+  "home": {
+    "used_of": "{{name}} don use {{used}} for {{limit}} today.",
+    "left": "{{left}} remain.",
+    "pause_sub": "Cut internet now, for as long as you want",
+    "pause_until": "Until I put am back",
+    "online_rules": "Rules dey work",
+    "paused": "Internet don stop",
+    "pause": "Stop internet",
+    "resume": "Put internet back",
+    "prayer": "Prayer time",
+    "exam": "Exam mode",
+    "sos": "Emergency people and SOS",
+    "add_child": "Add pikin",
+    "rhythm": "Today plan",
+    "empty_title": "Add your first pikin",
+    "tip": "Tip for today",
+    "limit_reached": "Today limit don finish."
+  },
+  "nav": {
+    "home": "Home",
+    "limits": "Limit",
+    "location": "Where e dey",
+    "reports": "Report",
+    "settings": "Setting",
+    "alerts": "Alert"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "back": "Go back",
+    "remove": "Comot",
+    "try_again": "E no work. Try again.",
+    "offline": "No network. Check your network, then try again."
+  },
+  "auth": {
+    "login_title": "Welcome back",
+    "phone": "Phone number",
+    "password": "Password",
+    "login_cta": "Enter",
+    "no_account": "Open account",
+    "register_title": "Open your account",
+    "register_cta": "Open account",
+    "have_account": "I don get account",
+    "full_name": "Your name",
+    "otp_title": "Confirm your phone",
+    "otp_cta": "Confirm"
+  },
+  "limits": {
+    "weekday": "School days",
+    "weekend": "Weekend",
+    "bedtime": "Sleep time lock"
+  },
+  "loc": {
+    "title": "Where e dey"
+  },
+  "rep": {
+    "title": "Report"
+  },
+  "settings": {
+    "title": "Setting",
+    "logout": "Comot"
+  },
+  "appearance": {
+    "title": "How e look",
+    "auto": "Follow my phone"
+  },
+  "plans": {
+    "title": "Plans"
+  },
+  "alerts": {
+    "title": "Alert"
+  },
+  "rhythm": {
+    "rest": "Sleep"
+  },
+  "units": {
+    "h": "hr"
+  },
+  "time": {
+    "h_ago": "{{n}} hr ago",
+    "d_ago": "{{n}} day ago"
+  }
+}

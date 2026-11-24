@@ -1,0 +1,115 @@
+{
+  "home": {
+    "used_of": "Amfanin {{name}} a yau: {{used}} cikin {{limit}}.",
+    "left": "Saura {{left}}.",
+    "pause_sub": "Yanke intanet yanzu, na lokacin da ka zaɓa",
+    "pause_30": "mintuna 30",
+    "pause_60": "awa 1",
+    "pause_120": "awa 2",
+    "pause_until": "Sai na kunna",
+    "prayer_on": "A kunne a {{city}}",
+    "online_rules": "Dokoki suna aiki",
+    "paused": "An dakatar da intanet",
+    "morning": "Ina kwana",
+    "afternoon": "Ina wuni",
+    "evening": "Barka da yamma",
+    "pause": "Dakatar da intanet",
+    "resume": "Kunna intanet",
+    "prayer": "Lokutan sallah",
+    "exam": "Yanayin jarrabawa",
+    "filter": "Tace abun ciki",
+    "sos": "Lambobin gaggawa da SOS",
+    "add_child": "Ƙara yaro",
+    "off": "A kashe",
+    "on": "A kunne",
+    "rhythm": "Tsarin yau",
+    "empty_title": "Ƙara ɗanka na farko",
+    "tip": "Shawara ta yau",
+    "limit_reached": "An kai iyakar yau."
+  },
+  "nav": {
+    "home": "Gida",
+    "limits": "Iyaka",
+    "location": "Wuri",
+    "reports": "Rahotanni",
+    "settings": "Saituna",
+    "alerts": "Faɗakarwa"
+  },
+  "common": {
+    "save": "Ajiye",
+    "cancel": "Soke",
+    "back": "Koma",
+    "remove": "Cire",
+    "try_again": "Hakan bai yi aiki ba. Sake gwadawa.",
+    "offline": "Babu haɗin intanet. Duba hanyar sadarwarka ka sake gwadawa."
+  },
+  "auth": {
+    "login_title": "Barka da dawowa",
+    "phone": "Lambar waya",
+    "password": "Kalmar sirri",
+    "login_cta": "Shiga",
+    "no_account": "Ƙirƙiri asusu",
+    "register_title": "Ƙirƙiri asusunka",
+    "register_cta": "Ƙirƙiri asusu",
+    "have_account": "Ina da asusu tuni",
+    "full_name": "Sunanka",
+    "otp_title": "Tabbatar da wayarka",
+    "otp_cta": "Tabbatar"
+  },
+  "limits": {
+    "title": "Lokacin waya",
+    "weekday": "Ranakun makaranta",
+    "weekend": "Ƙarshen mako",
+    "bedtime": "Kulle lokacin kwanciya"
+  },
+  "loc": {
+    "title": "Wuri"
+  },
+  "rep": {
+    "title": "Rahotanni"
+  },
+  "settings": {
+    "title": "Saituna",
+    "logout": "Fita"
+  },
+  "lang": {
+    "title": "Harshe"
+  },
+  "appearance": {
+    "title": "Kamanni",
+    "auto": "Bi wayata",
+    "light": "Haske",
+    "dark": "Duhu"
+  },
+  "plans": {
+    "title": "Tsare-tsare"
+  },
+  "alerts": {
+    "title": "Faɗakarwa"
+  },
+  "rhythm": {
+    "rest": "Kwanciya",
+    "school": "Makaranta",
+    "prayer": "Sallah",
+    "now": "Yanzu"
+  },
+  "units": {
+    "h": "awa",
+    "min": "minti"
+  },
+  "time": {
+    "just_now": "yanzu-yanzu",
+    "min_ago": "mintuna {{n}} da suka wuce",
+    "h_ago": "awa {{n}} da suka wuce",
+    "d_ago": "kwana {{n}} da suka wuce"
+  },
+  "days": {
+    "0": "Lah",
+    "1": "Lit",
+    "2": "Tal",
+    "3": "Lar",
+    "4": "Alh",
+    "5": "Jum",
+    "6": "Asa"
+  }
+}
